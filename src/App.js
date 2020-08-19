@@ -1,24 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+
+// function Helloworld(props){
+//   return (
+//     <div id="hello">Hello world, {props.text}</div>
+//   )
+// }
+
+class Helloworld extends React.Component{
+  state = {
+    show: true
+  }
+
+  shown = () =>{
+    this.setState({show: false})
+  }
+  render(){
+    if(this.state.show){
+      return(
+        <div>
+        <div id="hello">Hello world, {this.props.text}</div>
+        <button onClick={() => this.setState({show: false})}>mostrar</button>
+        </div>
+        
+      )
+    }else{
+      return (
+        <h3>NO</h3>
+      )
+      
+    }
+    
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      this is my component: 
+        <Helloworld text ="Geovanny"/>
     </div>
   );
 }
