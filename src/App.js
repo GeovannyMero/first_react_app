@@ -39,7 +39,7 @@ function App() {
   return (
     <div>
       this is my component: 
-        <Helloworld text ="Geovanny"/>
+        <Helloworld text ="Geovanny Mero"/>
     </div>
   );
 }
