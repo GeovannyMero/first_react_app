@@ -4,12 +4,16 @@ import './Task.css';
 class Task extends Component{
 
 StyleComplete(){
-    
+    return {
+        fontSize: '20px',
+        color: this.props.task.done ? 'gray' : 'black',
+        textDecoration: 'none'
+    }
 }
 
     render()
     {
-        return  <div><p>
+        return  <div style={this.StyleComplete()}><p>
             {this.props.task.title} - {this.props.task.done}
                     <input type="checkbox"/>
                     <button style={BtnDelete}>X</button>
