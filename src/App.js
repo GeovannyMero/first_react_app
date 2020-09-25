@@ -1,47 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './App.css';
+import  task from './sample/task.json';
 
-// function Helloworld(props){
-//   return (
-//     <div id="hello">Hello world, {props.text}</div>
-//   )
-// }
+//Componentes
+import Task from "./components/tasks"
+import TaskForm from "./components/TaskForm";
 
-class Helloworld extends React.Component{
+console.log(task);
+class App extends Component{
+
   state = {
-    show: true
+    tasks: task
   }
 
-  shown = () =>{
-    this.setState({show: false})
+  addTask = (title, description) => {
+    console.log('adding task...');
+    console.log(title, description);
   }
+
   render(){
-    if(this.state.show){
-      return(
-        <div>
-        <div id="hello">Hello world, {this.props.text}</div>
-        <button onClick={() => this.setState({show: false})}>mostrar</button>
-        </div>
-        
-      )
-    }else{
-      return (
-        <h3>NO</h3>
-      )
-      
-    }
-    
+    return <div>
+        <TaskForm addTask={this.addTask}/>
+        <Task tasks={this.state.tasks}/>
+    </div>
   }
 }
-
-function App() {
-  return (
-    <div>
-      this is my component: 
-        <Helloworld text ="Geovanny"/>
-    </div>
-  );
-}
-
 export default App;
